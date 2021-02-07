@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/chooseOptions">
+
+    <fragment
+        android:id="@+id/chooseOptions"
+        android:name="com.example.tictactoe.ChooseOptions"
+        android:label="choose_options"
+        tools:layout="@layout/choose_options" >
+        <action
+            android:id="@+id/action_chooseOptions_to_enterUserNames"
+            app:destination="@id/enterUserNames" />
+        <action
+            android:id="@+id/action_chooseOptions_to_viewScore"
+            app:destination="@id/viewScore" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterUserNames"
+        android:name="com.example.tictactoe.EnterUserNames"
+        android:label="fragment_enter_user_names"
+        tools:layout="@layout/fragment_enter_user_names" >
+        <action
+            android:id="@+id/action_enterUserNames_to_game"
+            app:destination="@id/game" />
+    </fragment>
+    <fragment
+        android:id="@+id/game"
+        android:name="com.example.tictactoe.Game"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_game_to_viewScore"
+            app:destination="@id/viewScore" />
+        <argument
+            android:name="user1_name"
+            app:argType="string" />
+        <argument
+            android:name="user2_name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewScore"
+        android:name="com.example.tictactoe.ViewScore"
+        android:label="fragment_view_score"
+        tools:layout="@layout/fragment_view_score" >
+        <action
+            android:id="@+id/action_viewScore_to_chooseOptions"
+            app:destination="@id/chooseOptions" />
+    </fragment>
+</navigation>
